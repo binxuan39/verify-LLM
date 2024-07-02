@@ -1,0 +1,20 @@
+
+Here's a Java solution to calculate the nth Fibonacci number using a recursive approach:
+```
+public class Solution {
+  public static int fib(int n) {
+    if (n == 0 || n == 1) {
+      return n;
+    } else {
+      return fib(n - 1) + fib(n - 2);
+    }
+  }
+}
+```
+This solution uses a recursive approach to calculate the nth Fibonacci number. The function takes an integer `n` as input and returns the corresponding Fibonacci number.
+
+The base case of the recursion is when `n` is either 0 or 1, in which case we return `n` itself. This is because the first two numbers in the Fibonacci sequence are 0 and 1.
+
+For larger values of `n`, we use the recursive formula to calculate the result: `fib(n) = fib(n - 1) + fib(n - 2)`. This is because each number in the Fibonacci sequence is the sum of the two preceding ones.
+
+The time complexity of this solution is O(n), since each call to `fib` only depends on the previous two calls, and there are at most n calls to `fib`. The space complexity is also O(n), since we need to store the values of `fib(i)` for all `i` up to `n` in memory.

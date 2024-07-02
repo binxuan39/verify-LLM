@@ -1,0 +1,13 @@
+codebase/httpRequest/Solution.java:36: error: Resource Leak
+  resource of type `java.net.HttpURLConnection` acquired to `connection` by call to `openConnection()` at line 13 is not released after line 36.
+**Note**: potential exception at line 30 (`while ((line = reader.readLine()) != null) {`)
+  34.
+  35.           connection.disconnect();
+  36. >     }
+  37.   }
+
+
+Found 1 issue
+    Issue Type(ISSUED_TYPE_ID): #
+  Resource Leak(RESOURCE_LEAK): 1
+

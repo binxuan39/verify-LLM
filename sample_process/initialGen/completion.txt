@@ -1,0 +1,40 @@
+
+Here is an example of how you can make an HTTP POST request with an XML body in Java:
+```
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+public class HTTPPostRequestWithXMLBody {
+    public static void main(String[] args) throws MalformedURLException, IOException {
+        URL url = new URL("http://www.example.com/api");
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        connection.setRequestMethod("POST");
+        connection.setDoOutput(true);
+
+        // Set the request body to an XML string
+        String xmlString = "<root><element>value</element></root>";
+        byte[] bytes = xmlString.getBytes("UTF-8");
+        connection.setRequestProperty("Content-Length", Integer.toString(bytes.length));
+        connection.setRequestProperty("Content-Type", "application/xml");
+        OutputStream outputStream = connection.getOutputStream();
+        outputStream.write(bytes);
+        outputStream.close();
+
+        // Get the response from the server
+        InputStream inputStream = connection.getInputStream();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+        String line;
+        while ((line = reader.readLine()) != null) {
+            System.out.println(line);
+        }
+        reader.close();
+    }
+}
+```
+This code sets up an HTTP POST request to the specified URL, sets the `Content-Type` header to `application/xml`, and then writes the XML string to the output stream using `OutputStreamWriter`. The response from the server is then read from the input stream using a `BufferedReader`.
+
+You can also use other libraries like Apache HttpClient or OkHttp for making HTTP requests in Java.

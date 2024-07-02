@@ -1,0 +1,12 @@
+Solution.java:20: error: cannot find symbol
+        OutputStream outputStream = connection.getOutputStream();
+        ^
+  symbol:   class OutputStream
+  location: class Solution
+
+
+Solution.java:25: error: cannot find symbol
+        InputStream inputStream = connection.getInputStream();
+        ^
+  symbol:   class InputStream
+  location: class Solution
